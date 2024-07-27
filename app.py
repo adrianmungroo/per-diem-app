@@ -64,17 +64,19 @@ if state:
 
 lat = 40
 lng = -100
+zoom = 4
 
 if city_name:
     try:
         selected = cities[(cities['state_name'] == state) & (cities['city'].str.upper() == city_name)]
         lat = selected['lat']
         lng = selected['lng']
-        m = folium.Map(location=[lat, lng], zoom_start=10)
+        zoom = 10
+        m = folium.Map(location=[lat, lng], zoom_start=zoom)
     except:
         st.error('Could not find that city in the database, more errors will follow!!!!!')
 
-m = folium.Map(location=[lat, lng], zoom_start=10)
+m = folium.Map(location=[lat, lng], zoom_start=zoom)
 
 map_object = st_folium(m, width=700, height=400)
 
