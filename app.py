@@ -3,6 +3,8 @@ import streamlit as st
 import folium
 from streamlit_folium import st_folium
 import numpy as np
+import ssl
+ssl._create_default_https_context = ssl._create_unverified_context
 
 cities = pd.read_csv('./data/uscities.csv')
 
